@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #0f172a;
+  color: #e5e7eb;
+  line-height: 1.6;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(180deg, #0f172a, #020617);
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  color: #22c55e;
+}
+
+.subtitle {
+  margin: 10px 0 20px;
+  color: #a3e635;
+}
+
+.ip-box button {
+  margin: 8px;
+  padding: 12px 18px;
+  border: none;
+  background: #22c55e;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.ip-box button:hover {
+  background: #16a34a;
+}
+
+.port {
+  margin-top: 10px;
+}
+
+.status {
+  margin: 15px 0;
+  font-weight: bold;
+}
+
+.cta {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 24px;
+  background: #6366f1;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.cta:hover {
+  background: #4f46e5;
+}
+
+/* FEATURES */
+.features {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.card {
+  background: #020617;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #22c55e;
+}
+
+/* OTHER SECTIONS */
+section h2 {
+  color: #22c55e;
+  margin-bottom: 15px;
+}
+
+.screenshots,
+.rules {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.rules ul {
+  list-style: none;
+}
+
+.rules li {
+  margin: 8px 0;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #020617;
+  font-size: 0.9rem;
+}
