@@ -1,69 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>🔥 SMP Minecraft Server | Java & Bedrock</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mythic SMP</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+  /* BASE STYLES */
+  * {margin:0; padding:0; box-sizing:border-box;}
+  body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #0b0f1a;
+    color: #eaeaf0;
+    line-height:1.5;
+  }
 
-  <!-- SEO -->
-  <meta name="description" content="Join our Cracked & Premium SMP Minecraft Server. Java & Bedrock supported. 24/7 uptime, events, economy, and active staff." />
+  a {text-decoration:none; color: inherit;}
 
-  <link rel="stylesheet" href="style.css">
+  /* CONTAINER */
+  .container {max-width: 1000px; margin:0 auto; padding:2rem;}
+
+  /* HERO */
+  .hero {text-align:center; padding:8rem 1rem;}
+  .hero h1 {
+    font-size:3rem;
+    background: linear-gradient(90deg, #a086ff, #6eb0ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 5s ease infinite alternate;
+  }
+  .hero p {margin:1rem 0; color:#aaa; font-size:1rem;}
+  .hero .btn {
+    display:inline-block;
+    margin-top:2rem;
+    padding:1rem 2rem;
+    background-color:#6eb0ff;
+    color:#0b0f1a;
+    font-weight:bold;
+    border-radius:8px;
+    transition: box-shadow 0.3s ease;
+  }
+  .hero .btn:hover {box-shadow: 0 0 15px 3px rgba(110,176,255,0.6);}
+
+  @keyframes gradientShift {
+    0% {background-position:0% 50%;}
+    100% {background-position:100% 50%;}
+  }
+
+  /* FEATURES */
+  .features {display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem; padding:4rem 0;}
+  .feature {padding:1rem;}
+  .feature h3 {margin-bottom:0.5rem;}
+  .feature p {color:#aaa; font-size:0.9rem;}
+
+  /* DASHBOARD */
+  .dashboard {padding:4rem 0; border-top:1px solid #222; border-bottom:1px solid #222;}
+  .dashboard table {width:100%; border-collapse: collapse;}
+  .dashboard th, .dashboard td {padding:0.75rem 1rem; text-align:left; color:#eaeaf0;}
+  .dashboard th {color:#aaa; font-weight:normal;}
+  .dashboard tr:not(:last-child) {border-bottom:1px solid #222;}
+
+  /* FOOTER */
+  footer {padding:2rem 0; text-align:center; color:#aaa; font-size:0.8rem;}
+
+  /* FADE-UP ANIMATION */
+  .fade-up {opacity:0; transform:translateY(20px); transition: all 0.8s ease;}
+  .fade-up.visible {opacity:1; transform:translateY(0);}
+
+  /* RESPONSIVE */
+  @media(max-width:600px){.hero h1{font-size:2rem;}}
+</style>
 </head>
-
 <body>
 
-  <!-- HERO -->
-  <section class="hero">
-    <h1>🔥 SMP Minecraft Server</h1>
-    <p class="subtitle">Java & Bedrock • Cracked & Premium • 24/7</p>
+<section class="hero fade-up">
+  <h1>MYTHIC SMP</h1>
+  <p>Chill • Global • Survival</p>
+  <a href="play.mythicsmp.xyz" class="btn">PLAY NOW</a>
+</section>
 
-    <div class="ip-box">
-      <button onclick="copyIP('play.yourserver.xyz')">📋 Copy Java IP</button>
-      <button onclick="copyIP('bedrock.yourserver.xyz')">📋 Copy Bedrock IP</button>
-      <p class="port">Bedrock Port: <b>19132</b></p>
-    </div>
+<section class="features container fade-up">
+  <div class="feature">
+    <h3>🌍 Global Playerbase</h3>
+    <p>Smooth experience worldwide</p>
+  </div>
+  <div class="feature">
+    <h3>🧑‍🤝‍🧑 Chill Community</h3>
+    <p>No toxicity, no rush</p>
+  </div>
+  <div class="feature">
+    <h3>🔓 Cracked & Premium</h3>
+    <p>Everyone welcome</p>
+  </div>
+  <div class="feature">
+    <h3>🛡️ Active Staff</h3>
+    <p>Fair & consistent moderation</p>
+  </div>
+</section>
 
-    <div id="status" class="status">Checking server status...</div>
+<section class="dashboard container fade-up">
+  <table>
+    <tr><th>Version</th><td>1.20.x</td></tr>
+    <tr><th>Mode</th><td>Survival SMP</td></tr>
+    <tr><th>Playstyle</th><td>Chill / Long-term</td></tr>
+    <tr><th>Resets</th><td>Rare</td></tr>
+  </table>
+</section>
 
-    <a class="cta" href="https://discord.gg/YOURINVITE" target="_blank">🚀 Join Discord</a>
-  </section>
+<footer class="fade-up">
+  Discord • Rules • Status<br>
+  © 2026 Mythic SMP<br>
+  Not affiliated with Mojang
+</footer>
 
-  <!-- FEATURES -->
-  <section class="features">
-    <h2>Why Join Our SMP?</h2>
-    <div class="cards">
-      <div class="card">⚡ Lag-Free & Optimized</div>
-      <div class="card">🌐 Java + Bedrock Crossplay</div>
-      <div class="card">🔓 Cracked & Premium Support</div>
-      <div class="card">🛡️ Anti-Cheat & Active Staff</div>
-      <div class="card">🎉 Events & Giveaways</div>
-      <div class="card">💰 Economy & Shops</div>
-    </div>
-  </section>
+<script>
+  const faders = document.querySelectorAll('.fade-up');
+  const appearOptions = {threshold:0.1, rootMargin:"0px 0px -50px 0px"};
+  const appearOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, appearOptions);
+  faders.forEach(fader => appearOnScroll.observe(fader));
+</script>
 
-  <!-- SCREENSHOTS -->
-  <section class="screenshots">
-    <h2>Server Preview</h2>
-    <p>Add real screenshots here (spawn, events, builds)</p>
-  </section>
-
-  <!-- RULES -->
-  <section class="rules">
-    <h2>Rules</h2>
-    <ul>
-      <li>No hacking or X-ray</li>
-      <li>No griefing or stealing</li>
-      <li>No abuse or racism</li>
-      <li>Staff decision is final</li>
-    </ul>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2026 SMP Minecraft Server</p>
-  </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
+
