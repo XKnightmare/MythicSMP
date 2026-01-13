@@ -21,7 +21,40 @@
   .container {max-width: 1000px; margin:0 auto; padding:2rem;}
 
   /* HERO */
-  .hero {text-align:center; padding:8rem 1rem;}
+  .hero {
+    position: relative;
+    height: 100vh;
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color: #eaeaf0;
+    background: url('https://i.pinimg.com/originals/6a/94/3f/6a943fcdf9944bfca4da1f5a38aaa60b.jpg') center/cover no-repeat;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top:0; left:0; right:0; bottom:0;
+    background: rgba(11,15,26,0.7); /* dark overlay */
+    z-index:0;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    top:0; left:0; right:0; bottom:0;
+    background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05) 0%, transparent 70%);
+    mix-blend-mode: overlay;
+    animation: slowPulse 15s ease-in-out infinite alternate;
+    z-index:0;
+  }
+  @keyframes slowPulse {
+    0% {opacity: 0.05;}
+    100% {opacity: 0.15;}
+  }
+
+  .hero-content {position: relative; z-index:1;}
   .hero h1 {
     font-size:3rem;
     background: linear-gradient(90deg, #a086ff, #6eb0ff);
@@ -30,22 +63,26 @@
     animation: gradientShift 5s ease infinite alternate;
   }
   .hero p {margin:1rem 0; color:#aaa; font-size:1rem;}
-  .hero .btn {
+  .hero .btn, .copy-btn {
     display:inline-block;
-    margin-top:2rem;
+    margin:0.5rem;
     padding:1rem 2rem;
     background-color:#6eb0ff;
     color:#0b0f1a;
     font-weight:bold;
     border-radius:8px;
+    cursor:pointer;
     transition: box-shadow 0.3s ease;
   }
-  .hero .btn:hover {box-shadow: 0 0 15px 3px rgba(110,176,255,0.6);}
+  .hero .btn:hover, .copy-btn:hover {box-shadow: 0 0 15px 3px rgba(110,176,255,0.6);}
 
   @keyframes gradientShift {
     0% {background-position:0% 50%;}
     100% {background-position:100% 50%;}
   }
+
+  /* IP SECTION */
+  .ip-section {margin-top:2rem; display:flex; flex-direction: column; gap:1rem; align-items:center;}
 
   /* FEATURES */
   .features {display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem; padding:4rem 0;}
@@ -74,9 +111,18 @@
 <body>
 
 <section class="hero fade-up">
-  <h1>MYTHIC SMP</h1>
-  <p>Chill • Global • Survival</p>
-  <a href="play.mythicsmp.xyz" class="btn">PLAY NOW</a>
+  <div class="hero-content">
+    <h1>MYTHIC SMP</h1>
+    <p>Chill • Global • Survival</p>
+
+    <div class="ip-section">
+      <div>
+        <span>Java & Bedrock IP: <strong>MythicSMPS1.aternos.me:30486</strong></span>
+        <button class="copy-btn" onclick="copyIP()">Copy IP</button>
+      </div>
+      <a href="https://discord.gg/hY9W2hTqMz" class="btn">Join our Discord</a>
+    </div>
+  </div>
 </section>
 
 <section class="features container fade-up">
@@ -114,6 +160,7 @@
 </footer>
 
 <script>
+  // FADE-UP ON SCROLL
   const faders = document.querySelectorAll('.fade-up');
   const appearOptions = {threshold:0.1, rootMargin:"0px 0px -50px 0px"};
   const appearOnScroll = new IntersectionObserver((entries, observer) => {
@@ -125,8 +172,14 @@
     });
   }, appearOptions);
   faders.forEach(fader => appearOnScroll.observe(fader));
+
+  // COPY IP FUNCTION
+  function copyIP() {
+    navigator.clipboard.writeText('MythicSMPS1.aternos.me:30486').then(() => {
+      alert('IP copied to clipboard!');
+    });
+  }
 </script>
 
 </body>
 </html>
-
