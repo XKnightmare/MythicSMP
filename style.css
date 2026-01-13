@@ -136,4 +136,20 @@ footer {
 .nav-links a:hover {
   opacity: 0.8;
 }
+.footer {
+  text-align: center;
+  padding: 30px;
+  background: #0b0f1a;
+  color: #aaa;
+  margin-top: 80px;
+}
+
+.footer a {
+  color: #8a8aff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
 
